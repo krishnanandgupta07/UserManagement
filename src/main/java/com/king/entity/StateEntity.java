@@ -11,12 +11,17 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "state_master")
+@Getter
+@Setter
 public class StateEntity {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer stateId;
 	private String stateName;
 	
@@ -26,6 +31,5 @@ public class StateEntity {
     @JoinColumn(name = "country_id")
     private CountryEntity country;
 
-    @OneToMany(mappedBy = "state", cascade = CascadeType.ALL)
-    private List<CityEntity> cities;
+   
 }

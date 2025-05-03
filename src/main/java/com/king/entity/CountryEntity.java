@@ -18,9 +18,10 @@ import lombok.Setter;
 @Getter
 public class CountryEntity {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer countryId;
 	private String countryName;
-	@OneToMany(mappedBy = "county_Master",cascade = CascadeType.ALL)
-	private List<StateEntity> states;
+	
+
 
 }

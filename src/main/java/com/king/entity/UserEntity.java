@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 public class UserEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
 	private String name;
 	private String email;
@@ -26,13 +26,13 @@ public class UserEntity {
 	
 	@ManyToOne
 	@JoinColumn(name = "country_id")
-	private CountryEntity countrId;
+	private CountryEntity country;
 	@ManyToOne
 	@JoinColumn(name = "state_id")
-	private StateEntity stateId;
+	private StateEntity state;
 	@ManyToOne
 	@JoinColumn(name = "city_id")
-	private CityEntity cityId;
+	private CityEntity city;
 	
 
 }
