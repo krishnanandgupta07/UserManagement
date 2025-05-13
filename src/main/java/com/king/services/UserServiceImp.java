@@ -102,7 +102,7 @@ public class UserServiceImp implements UserService {
 		BeanUtils.copyProperties(userDTO, entity);
 		// by using above country,state,city data will not copy due to object data
 
-		CountryEntity country = countryRepo.findById(userDTO.getCountrId()).get();
+		CountryEntity country = countryRepo.findById(userDTO.getCountryId()).get();
 		entity.setCountry(country);
 
 		StateEntity state = stateRepo.findById(userDTO.getStateId()).get();
@@ -136,7 +136,7 @@ public class UserServiceImp implements UserService {
 	@Override
 	public QuoteRespondDTO getQuotation() {
 
-		String apiUrl = "http://dummyjson.com/quotes/random";
+		String apiUrl = "https://dummyjson.com/quotes/random";
 		RestTemplate rt = new RestTemplate();
 		ResponseEntity<QuoteRespondDTO> forEntity = rt.getForEntity(apiUrl, QuoteRespondDTO.class);
 		return forEntity.getBody();
